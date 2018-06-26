@@ -12,10 +12,6 @@ import matplotlib.pyplot as plt
 I have taken multiple images of chessboard patterns that will help us come up with the camera intrisnics (See below). While any pattern is ok, as long as they provide definitive real world distances, OpenCV has implemented Chess and Checkerboard versions.
 
 
-```python
-
-```
-
 
 ```python
 ff, axs = plt.subplots(2,4,figsize=(10,10))
@@ -34,11 +30,7 @@ plt.show()
 ![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/camera-calibration2/output_4_0.png)
     
 
-
-
-```python
 The below is taken from OpenCV camera calib documentation
-```
 
 
 ```python
@@ -85,7 +77,7 @@ for fname in images:
     i+=1;
 ```
 
-Since I know the f in mm for my ipad. I will be using this to initialize. Line 48-61 can be commented out if this info is unavailable.
+Since I know the f in mm for my ipad. I will be using this to initialize the intrinsics. The lines below can be commented out if this info is unavailable.
 
 
 ```python
@@ -103,6 +95,7 @@ mtx[2,2]= 1.0
 dist = np.zeros(4,'float32')
 ```
 
+Finally, we run OpenCVs calibration tool to get the necessary camera params i.e. fx,fy, cx, cy + 3 radial distortion params + 2 tangential distorion params.
 
 ```python
 
@@ -164,13 +157,16 @@ print("total error: ", mean_error/len(objpoints))
     [[1.67162145e+03 0.00000000e+00 7.59946990e+02]
      [0.00000000e+00 1.72978644e+03 1.01670538e+03]
      [0.00000000e+00 0.00000000e+00 1.00000000e+00]]
+
     [[ 2.57117164e-01]
      [-2.15377472e+00]
      [-4.17743883e-03]
      [ 7.39511274e-04]
      [ 5.16994726e+00]]
+     
     0.8446222839985243 0.2571171644190559 -2.153774720088419 1.0347955524144437 0.4947571548823418 0.4964381722287351
     1.0882952122317673 0.8446222839985243 0.4947571548823418 0.4964381722287351 0.2571171644190559 -2.153774720088419 5.169947262564776 -0.004177438833823495 0.0007395112742603118
+
     total error:  0.14291784746191233
 
 
@@ -194,12 +190,6 @@ def draw(img, corners, imgpts):
     img = cv2.line(img, corner, tuple(imgpts[1].ravel()), (0,255,0), 20)
     img = cv2.line(img, corner, tuple(imgpts[2].ravel()), (0,0,255), 20)
     return img
-```
-
-
-```python
-
-
 ```
 
 
@@ -235,16 +225,6 @@ for fname in glob.glob('./imgs/*.JPEG'):
 plt.tight_layout()
 plt.show()
 ```
-
-    <ipython-input-20-b099df0c111f>:3: DeprecationWarning: an integer is required (got type numpy.float32).  Implicit conversion to integers using __int__ is deprecated, and may be removed in a future version of Python.
-      img = cv2.line(img, corner, tuple(imgpts[0].ravel()), (255,0,0), 20)
-    <ipython-input-20-b099df0c111f>:4: DeprecationWarning: an integer is required (got type numpy.float32).  Implicit conversion to integers using __int__ is deprecated, and may be removed in a future version of Python.
-      img = cv2.line(img, corner, tuple(imgpts[1].ravel()), (0,255,0), 20)
-    <ipython-input-20-b099df0c111f>:5: DeprecationWarning: an integer is required (got type numpy.float32).  Implicit conversion to integers using __int__ is deprecated, and may be removed in a future version of Python.
-      img = cv2.line(img, corner, tuple(imgpts[2].ravel()), (0,0,255), 20)
-
-
-
     
 ![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/camera-calibration2/output_15_1.png)
     
