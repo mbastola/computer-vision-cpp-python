@@ -6,7 +6,7 @@ In [this project](https://github.com/mbastola/computer-vision-cpp-python/tree/ma
 </p>
 
 
-Assuming pin hole camera, we can utilizing similar triangle methods(see below), and can come up with focal lengths equation: 
+Assuming pin hole camera, we can utilize similar triangle methods(see below), and can come up with focal lengths equation: 
     # fx = (dx/dX) * dZ , fy = (dy/dY) * dZ
 where dX, dY are the physical length & width of the object in view and dZ is the distance from object to camera. dx and dy are the corresponding pixel width & height of the object
 
