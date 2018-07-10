@@ -136,7 +136,7 @@ plt.show()
 
 
     
-![png](https://github.com/mbastola/computer-vision-cpp-python/tree/master/two-view-geometry/imgs/output_12_0.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/two-view-geometry/imgs/output_12_0.png)
     
 
 
@@ -209,7 +209,7 @@ plt.show()
 
 
     
-![png](https://github.com/mbastola/computer-vision-cpp-python/tree/master/two-view-geometry/imgs/output_17_0.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/two-view-geometry/imgs/output_17_0.png)
     
 
 
@@ -270,8 +270,7 @@ plt.show()
 
 
     
-![png](https://github.com/mbastola/computer-vision-cpp-python/tr\
-ee/master/two-view-geometry/imgs/output_23_0.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/two-view-geometry/imgs/output_23_0.png)
     
 
 
