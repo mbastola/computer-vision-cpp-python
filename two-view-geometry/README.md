@@ -1,5 +1,4 @@
-In [this project](https://github.com/mbastola/computer-vision-cpp-python/tr\
-ee/master/two-view-geometry), I extend the feature matching and camera calibration methods to computing camera poses in a two view scenario. This is the first of the series where we deal with computing camera extrinsics from 2 images. 
+In [this project](https://github.com/mbastola/computer-vision-cpp-python/tree/master/two-view-geometry), I extend the feature matching and camera calibration methods to computing camera poses in a two view scenario. This is the first of the series where we deal with computing camera extrinsics from 2 images. 
 
 
 ```python
@@ -21,8 +20,7 @@ Lets import all the feature generation and matching from last project
 from utils import *
 ```
 
-The two view images I have used for this project are from
-#https://documents.epfl.ch/groups/c/cv/cvlab-unit/www/data/multiview/modelFountain.html
+The two view images I have used for this project are from [here](https://documents.epfl.ch/groups/c/cv/cvlab-unit/www/data/multiview/modelFountain.html)
 
 
 ```python
@@ -138,8 +136,7 @@ plt.show()
 
 
     
-![png](https://github.com/mbastola/computer-vision-cpp-python/tr\
-ee/master/two-view-geometry/imgs/output_12_0.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/tree/master/two-view-geometry/imgs/output_12_0.png)
     
 
 
@@ -212,8 +209,7 @@ plt.show()
 
 
     
-![png](https://github.com/mbastola/computer-vision-cpp-python/tr\
-ee/master/two-view-geometry/imgs/output_17_0.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/tree/master/two-view-geometry/imgs/output_17_0.png)
     
 
 
