@@ -381,6 +381,13 @@ out_colors = np.array([ src_image[pt[1],pt[0]] for pt in pts2  ])
 write_ply("./out.ply", out_pts, out_colors.T[[2,1,0]].T)
 ```
 
-![gif]("https://github.com/mbastola/computer-vision-cpp-python/blob/master/two-view-geometry2/imgs/out.gif")
+<p float="left">
+  <img src="https://github.com/mbastola/computer-vision-cpp-python/blob/master/two-view-geometry2/imgs/out.gif" width="900"/>
+</p>
 
 
+
+## References
+
+
+Multiple View Geometry in Computer Vision (second edition), R.I. Hartley and A. Zisserman, Cambridge University Press, ISBN 0-521-54051-8
