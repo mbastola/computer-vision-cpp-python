@@ -1,4 +1,4 @@
-In [this project](https://github.com/mbastola/computer-vision-cpp-python/tree/master/two-view-geometry2) I finalize my two-view-geometry project with 3D point clouds from the two viewpoint images. The complete code can be found at two-view-geometry.py in this repo.
+\In [this project](https://github.com/mbastola/computer-vision-cpp-python/tree/master/two-view-geometry2) I finalize my two-view-geometry project with 3D point clouds from the two viewpoint images. The complete code can be found at two-view-geometry.py in this repo.
 
 
 ```python
@@ -42,7 +42,7 @@ plt.show()
     
 
 
-Lets import everything from the previous project:
+Lets import everything from the [previous project](https://github.com/mbastola/computer-vision-cpp-python/tree/master/two-view-geometry):
 
 
 ```python
@@ -111,7 +111,7 @@ R1, R2, t = decompEssentialMatrix(E)
 
 
 ```python
-R1
+print(R1)
 ```
 
 
@@ -125,7 +125,7 @@ R1
 
 
 ```python
-R2
+print(R2)
 ```
 
 
@@ -139,7 +139,7 @@ R2
 
 
 ```python
-t
+print(t)
 ```
 
 
@@ -158,7 +158,7 @@ retval, R_, t_, mask = cv2.recoverPose(E, pts1, pts2, K)
 
 
 ```python
-t_
+print(t_)
 ```
 
 
@@ -172,7 +172,7 @@ t_
 
 
 ```python
-R_
+print(R_)
 ```
 
 
@@ -184,9 +184,9 @@ R_
 
 
 
-Ok not bad. CV2 recover pose takes chirality solution into account and gave us R=R2. 
+Ok, they are identical. CV2 recover pose takes chirality solution into account and gave us R=R2. 
 
-For our naive implemetaton, there are 4 possible solutions based on chirality contraints. (HZ (9.14))
+Btw, for our naive implemetaton, there are 4 possible solutions based on chirality contraints. (HZ (9.14)). This is automated in the final solution two_view_geometry.py based on minimum reprojection error.
 
 
 ```python
