@@ -239,37 +239,6 @@ def LinearLSTriangulation( u, P, u1, P1, mode=0):
         X = np.array( [ X[1][0][0], X[1][1][0], X[1][2][0], 1 ] )
     return X
 
-
-def LinearLSTriangulation_old( u, P, u1, P1):
-    A = np.zeros( (4,3) )
-    B = np.zeros( (4,1) )
-    A[0,0] = u[0]*P[2,0]-P[0,0]
-    A[0,1] = u[0]*P[2,1]-P[0,1]
-    A[0,2] = u[0]*P[2,2]-P[0,2]
-    A[1,0] = u[1]*P[2,0]-P[1,0]
-    A[1,1] = u[1]*P[2,1]-P[1,1]
-    A[1,2] = u[1]*P[2,2]-P[1,2]
-    
-    A[2,0] = u1[0]*P1[2,0]-P1[0,0]
-    A[2,1] = u1[0]*P1[2,1]-P1[0,1]
-    A[2,2] = u1[0]*P1[2,2]-P1[0,2]
-    A[3,0] = u1[1]*P1[2,0]-P1[1,0]
-    A[3,1] = u1[1]*P1[2,1]-P1[1,1]
-    A[3,2] = u1[1]*P1[2,2]-P1[1,2]
-    
-    B[0,0] = -(u[0]*P[2,3]-P[0,3])
-    B[1,0] = -(u[1]*P[2,3]-P[1,3])
-    B[2,0] = -(u1[0]*P1[2,3]-P1[0,3])
-    B[3,0] = -(u1[1]*P1[2,3]-P1[1,3])
-    
-    """
-    A[2,0] = u1.x*P1(2,0)-P1(0,0), u1.x*P1(2,1)-P1(0,1),u1.x*P1(2,2)-P1(0,2),
-    u1.y*P1(2,0)-P1(1,0), u1.y*P1(2,1)-P1(1,1),u1.y*P1(2,2)-P1(1,2)
-    """
-    #X = np.linalg.lstsq(A,B)
-    X = cv2.solve(A, B, flags=cv2.DECOMP_SVD)
-    return np.array( [ X[1][0][0], X[1][1][0], X[1][2][0], 1 ] )
-
     
 def get3DReprojectionError(X, K, P, x):
     KP = np.matmul( K, P) 
@@ -305,7 +274,7 @@ Kinv = np.linalg.inv(K)
 
 
 ```python
-Kinv
+print(Kinv)
 ```
 
 
@@ -333,13 +302,6 @@ fig = plt.figure()
 ax = plt.axes(projection='3d')
 ax.scatter3D(pts3d[:,0],pts3d[:,1],pts3d[:,2])
 ```
-
-
-
-
-    <mpl_toolkits.mplot3d.art3d.Path3DCollection at 0x7f5e672034f0>
-
-
 
 
     
