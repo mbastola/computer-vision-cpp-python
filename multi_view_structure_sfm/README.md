@@ -1,5 +1,4 @@
-In [this project](https://github.com/mbastola/computer-vision-cpp-python/tree/mas\
-ter/multi-view-geometry), I extend my two-view geometry project to n-view scenario. This is the first of the series where we deal with computing multi view pnp pose and reconstruction.
+In [this project](https://github.com/mbastola/computer-vision-cpp-python/tree/master/multi-view-geometry), I extend my two-view geometry project to n-view scenario. This is the first of the series where we deal with computing multi view pnp pose and reconstruction.
 
 
 ```python
@@ -99,7 +98,7 @@ points_3d, P0, P1 = two_view_geometry( pts1, pts2, F, K )
 
 
 ```python
-P1
+print(P1)
 ```
 
 
@@ -251,7 +250,7 @@ plot3D(out_pts_3d)
 
 
     
-![png](https://github.com/mbastola/computer-vision-cpp-python/tree/blob/multi-view-geometry/imgs/output_13_0.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/multi_view_structure_sfm/imgs/output_13_0.png)
     
 
 
@@ -264,7 +263,7 @@ write_ply("./out.ply", out_pts_3d[:,:-1], out_colors.T[[2,1,0]].T)
 ```
 
 <p float="left">
-  <img src="https://github.com/mbastola/computer-vision-cpp-python/blob/master/multi-view-geometry/imgs/out.gif" width="900"/>
+  <img src="https://github.com/mbastola/computer-vision-cpp-python/blob/master/multi_view_structure_sfm/imgs/out.gif" width="900"/>
 </p>
 
 
