@@ -254,7 +254,7 @@ plot3D(out_pts_3d)
     
 
 
-Okay, matplotlib is limited. So I will export the geometry and open it in meshalb
+Okay, matplotlib is limited. So I will export the geometry and open it in meshlab
 
 
 ```python
