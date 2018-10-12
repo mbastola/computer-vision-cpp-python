@@ -38,7 +38,7 @@ plt.show()
 
 
     
-![png](https://github.com/mbastola/computer-vision-cpp-python/tree/blob/multi-view-geometry2/imgs/output_5_0.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/multi_view_structure_sfm2/imgs/output_5_0.png)
     
 
 
@@ -334,7 +334,7 @@ plt.plot(f0)
 
 
     
-![png](https://github.com/mbastola/computer-vision-cpp-python/tree/blob/multi-view-geometry2/imgs/output_14_1.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/multi_view_structure_sfm2/imgs/output_14_1.png)
     
 
 
@@ -359,7 +359,7 @@ outlier = isOutlier(f0_2d_norm)
 
 
     
-![png](https://github.com/mbastola/computer-vision-cpp-python/tree/blob/multi-view-geometry2/imgs/output_17_0.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/multi_view_structure_sfm2/imgs/output_17_0.png)
     
 
 
@@ -386,7 +386,7 @@ plt.plot(f1)
 
 
     
-![png](https://github.com/mbastola/computer-vision-cpp-python/tree/blob/multi-view-geometry2/imgs/output_19_1.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/multi_view_structure_sfm2/imgs/output_19_1.png)
     
 
 
@@ -521,7 +521,7 @@ plt.plot(res.fun)
 
 
     
-![png](https://github.com/mbastola/computer-vision-cpp-python/tree/blob/multi-view-geometry2/imgs/output_27_1.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/multi_view_structure_sfm2/imgs/output_27_1.png)
     
 
 
