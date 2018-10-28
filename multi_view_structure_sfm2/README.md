@@ -263,7 +263,7 @@ for fname in filenames[2:]:
     Reprojection error: 0.5737068350362619
 
 
-Ok, lets observe the reprojection error of each 3D point to whichever view camera it was viewed upon. According to our shceme we only favored the first 3D point triangulated from the first 2 views.
+Ok, lets observe the reprojection error of each 3D point to whichever view camera it was viewed upon. According to our scheme we only favored the first 3D point triangulated from the first 2 views.
 
 
 ```python
@@ -525,7 +525,7 @@ plt.plot(res.fun)
     
 
 
-Not a lot of improvement however it reduced the residuals to the range < 400 vs around 500 without Bundle Adjustment.
+Compared to the previous residuals, the max error is now under 370 vs around 500 without Bundle Adjustment. The errors towards the higher view Indexes (newer 3d Points) which seemed distrubute around 60 pixel values pre optimzation are now significantly lower with Bundle Adjustment (i.e. in range < 10 pixels).
 
 
 ```python
