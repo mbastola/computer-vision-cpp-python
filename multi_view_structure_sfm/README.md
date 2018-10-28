@@ -1,4 +1,4 @@
-In [this project](https://github.com/mbastola/computer-vision-cpp-python/tree/master/multi-view-geometry), I extend my two-view geometry project to n-view scenario. This is the first of the series where we deal with computing multi view pnp pose and reconstruction.
+In [this project]([https://github.com/mbastola/computer-vision-cpp-python/tree/master/multi-view-geometry), I extend my two-view geometry project to n-view scenario. This is the first of the series where we deal with computing multi view pnp pose and sparse 3D reconstruction.
 
 
 ```python
@@ -17,6 +17,28 @@ import matplotlib.pyplot as plt
 ```python
 from two_view_geometry import two_view_geometry,TriangulatePoints, unitDeterminantCheck,genMatcher, computeDescriptions, plot3D, write_ply
 ```
+
+Lets see what images we have for this reconstruction:
+
+
+```python
+#https://documents.epfl.ch/groups/c/cv/cvlab-unit/www/data/multiview/modelFountain.html
+ff, axs = plt.subplots(2,4,figsize=(10,5))
+idx=0
+for fname in glob.glob('./imgs/fountain/*.png')[:8]:
+    img = cv2.imread(fname)
+    plt.subplot(int("24{}".format(idx+1)))
+    plt.imshow(img.T[[2,1,0]].T)
+    idx+=1
+plt.tight_layout()
+plt.show()
+```
+
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/multi_view_structure_sfm/imgs/output_5_0.png)
+
+
+
+
 
 
 ```python
@@ -271,6 +293,5 @@ write_ply("./out.ply", out_pts_3d[:,:-1], out_colors.T[[2,1,0]].T)
 ## References
 
 
-Multiple View Geometry in Computer Vision (second edition), R.I. Hartley and A. Zi\
-sserman, Cambridge University Press, ISBN 0-521-54051-8
+Multiple View Geometry in Computer Vision (second edition), R.I. Hartley and A. Zisserman, Cambridge University Press, ISBN 0-521-54051-8
 

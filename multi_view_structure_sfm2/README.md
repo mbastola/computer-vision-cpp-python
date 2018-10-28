@@ -1,4 +1,4 @@
-In [this project](https://github.com/mbastola/computer-vision-cpp-python/tree/master/multi-view-geometry2), I extend my [multi-view geometry project](https://github.com/mbastola/computer-vision-cpp-python/tree/master/multi-view-geometry) with bundle adjustment optimization. We are closing in towards multi view sfm reconstuction which is one of the crowing achievements of Computer Vision.
+In [this project](https://github.com/mbastola/computer-vision-cpp-python/tree/master/multi-view-geometry2), I extend my [multi-view geometry project](https://github.com/mbastola/computer-vision-cpp-python/tree/master/multi-view-geometry) with bundle adjustment optimization. We are closing in towards multi view sfm reconstuction which is one of the crowning achievements of Computer Vision. In this project we will be adding on to our previous efforts in generating optimized sparse 3D point clouds with the Bundle Adjustment optimization. 
 
 Lets begin with importing all of our previous project till now:
 
@@ -325,14 +325,6 @@ f0 = fun(x0, n_cameras, n_points, camera_indices, point_indices, out_pts_2d, K)
 plt.plot(f0)
 ```
 
-
-
-
-    [<matplotlib.lines.Line2D at 0x7fccfcf0da60>]
-
-
-
-
     
 ![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/multi_view_structure_sfm2/imgs/output_14_1.png)
     
@@ -359,11 +351,8 @@ outlier = isOutlier(f0_2d_norm)
 
 
     
-![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/multi_view_structure_sfm2/imgs/output_17_0.png)
-    
 
-
-Lets remove the ourliers from out 3d-2d correspondences
+Lets remove the outliers from out 3d-2d correspondences
 
 
 ```python
@@ -380,17 +369,12 @@ plt.plot(f1)
 
 
 
-    [<matplotlib.lines.Line2D at 0x7fcd0535ff70>]
-
-
-
-
     
 ![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/multi_view_structure_sfm2/imgs/output_19_1.png)
     
 
 
-Ok, looks like we can deal with this range of errors. Lets run the Bundle Adjustmetn meachism on it then.
+Ok, looks like we can deal with this range of errors. Lets run the Bundle Adjustment mechanism on it then.
 
 
 ```python
@@ -511,13 +495,6 @@ points_3d = res.x[n_cameras * 6:].reshape((n_points, 3))
 ```python
 plt.plot(res.fun)
 ```
-
-
-
-
-    [<matplotlib.lines.Line2D at 0x7fcce4d3d3a0>]
-
-
 
 
     
