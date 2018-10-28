@@ -338,7 +338,7 @@ plt.plot(f0)
     
 
 
-We note existence of outlier 3D points that takes the reprojection error to inf. A naive Bundle adjustment mechanism would be hijacked by these outliers and the algoritm would try its best to minimise these anomalies. Try it out if you dont belive me. Anyways, the best thing to do is to remove these 3d and 2d points from out view since we have enough to go around.
+We note existence of outlier 3D points that takes the reprojection error to inf. A naive Bundle adjustment mechanism would be hijacked by these outliers and the algorithm will try its best to minimize these anomalies. Try it out if you dont believe me. Anyways, the best thing to do is to remove these 3d and 2d points from out view since we have enough of these to go around.
 
 
 ```python
