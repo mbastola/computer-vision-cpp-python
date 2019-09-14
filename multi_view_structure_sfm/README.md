@@ -288,7 +288,7 @@ write_ply("./out.ply", out_pts_3d[:,:-1], out_colors.T[[2,1,0]].T)
   <img src="https://github.com/mbastola/computer-vision-cpp-python/blob/master/multi_view_structure_sfm/imgs/out.gif" width="900"/>
 </p>
 
-
+![gif](https://github.com/mbastola/computer-vision-cpp-python/blob/master/multi_view_structure_sfm/imgs/out.gif)
 
 ## References
 
