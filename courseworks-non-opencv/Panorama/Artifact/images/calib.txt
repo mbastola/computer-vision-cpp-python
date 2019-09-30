@@ -1,0 +1,21 @@
+Calibration parameters after initialization:
+
+Focal Length:          fc = [ 556.80479   556.80479 ]
+Principal point:       cc = [ 319.50000   239.50000 ]
+Skew:             alpha_c = [ 0.00000 ]   => angle of pixel = 90.00000 degrees
+Distortion:            kc = [ 0.00000   0.00000   0.00000   0.00000   0.00000 ]
+
+Main calibration optimization procedure - Number of images: 16
+Gradient descent iterations: 1...2...3...4...5...6...7...8...9...10...11...12...13...14...15...16...17...18...19...20...21...22...23...done
+Estimation of uncertainties...done
+
+
+Calibration results after optimization (with uncertainties):
+
+Focal Length:          fc = [ 548.71738   550.86964 ] +/- [ 3.50693   3.31368 ]
+Principal point:       cc = [ 318.95998   238.38751 ] +/- [ 1.74328   2.83626 ]
+Skew:             alpha_c = [ 0.00000 ] +/- [ 0.00000  ]   => angle of pixel axes = 90.00000 +/- 0.00000 degrees
+Distortion:            kc = [ 0.08898   -0.11683   -0.00534   -0.00085  0.00000 ] +/- [ 0.01014   0.04018   0.00105   0.00131  0.00000 ]
+Pixel error:          err = [ 0.15585   0.19811 ]
+
+Note: The numerical errors are approximately three times the standard deviations (for reference).
