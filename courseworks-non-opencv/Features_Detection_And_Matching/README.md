@@ -1,4 +1,4 @@
-#Project 1: Feature Detection and Matching
+# Project 1: Feature Detection and Matching
 
 **Detector Design:**
 
@@ -80,7 +80,6 @@ eigenvaule for detection and manilsFeatureDescriptor for description.
 **Performance:**
 
 Yosemite:
-
 ![png](imgs/plot.roc.yose.png)
 ```
 ROC plot
@@ -98,7 +97,7 @@ Graf:
 ROC plot
 ```
 ![png](imgs/harris_graf.png)
-S```
+```
 Result of Harris Operator on Graf's Img1.jpg. The pixels have been multiplied by 255 for better
 visibility
 ```
@@ -113,7 +112,8 @@ Good features due to dynamic harris thresholding in bike img6.jpg
 Feature matching with manilsFeatureDescriptors for sligt image translations
 ```
 ![png](imgs/feature_matching2.png)
-```Feature matching with SSD and manilsFeatureDescriptors for image rotation (Labels with x show bad
+```
+Feature matching with SSD and manilsFeatureDescriptors for image rotation (Labels with x show bad
 match)
 ```
 ![png](imgs/avg_auc.png)
@@ -121,7 +121,7 @@ match)
 Avergage AUC across benchmark sets
 ```
 ```
-Strengths/Weaknesses:
+## Strengths/Weaknesses:
 ```
 ```
 Strengths:
@@ -130,45 +130,39 @@ dynamic harris thresholding
 2) The descriptors are illumination invariant
 3) Rotation invariant in 2d plane
 ```
+
 ```
 Weakness
-```
-```
 1)My ratio match algorithm performed worse than SSD match in most of the cases. This could be due to
 smaller distances between first and the second matching descriptors in cases where desrciptors are very
 similar. Some kind of BAG of words matching might resolve the issue.
-```
-```
+
 2)Not so good with 3d rotations in case of benchmark files graf and walls
-```
-```
+
 3)Not scale invariant
-```
-```
+
 4)Descriptors matching takes too long with simple5x5 descriptor for benchmark files leuven and wall.
 One reason could be that without any gaussian filtering, the threshold for bad gradient is not cut off the
 there is much variance in the histograms.
 ```
-```
-Extra Credit:
-```
+
+## Extra Credit:
+
 ```
 1) Illumination Invariant
-```
 
 As discussed earlier, this normalizing is done by subtracting the average cell (5x5) intensity from each
 pixel and diving the value by standard deviation in the cell intensities. For the benchmark folder
 Leaven, the average AUC using SSD before normalizations = 0.4739. After, the nomalization, the
 average AUC = 0.
 
-```
+
 2) Rotation Invariant
-```
 
 For the benchmark folder Graf, the average AUC using SSD before rotation correction = 0.4324. After,
 the correcting, the average AUC = 0.5203. This is not a significant difference. The result could be due
 to high 3d rotation in graf. In other example such as Bunny image above, rotation correction improved
 the result significantly.
 
-
+```
 

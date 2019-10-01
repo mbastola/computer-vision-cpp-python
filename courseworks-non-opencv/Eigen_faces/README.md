@@ -1,5 +1,5 @@
 
-#Project 3: Eigenfaces
+# Project 3: Eigenfaces
 
 
 Used std::vector instead of std::list in the implementation of findFaces. I tried
@@ -58,15 +58,15 @@ folder “neutral” was used to compute the userbase. i.e. with 100%-(7/24*100%
 
 
 ### Questions:
-![](imgs/cropped_face.tga)
+![png](imgs/cropped_face.png)
 ```
 Fig4: cropped_test.tga from group/single_test.tga image
 ```
-![](imgs/marked_faces_single.tga)
+![png](imgs/marked_faces_single.png)
 ```
 Fig5: single image preformace
 ```
-![](imgs/marked_faces_new_.tga)
+![png](imgs/marked_faces_new_.png)
 ```
 Fig6: Group image preformace
 ```
@@ -90,12 +90,12 @@ Following are the examples of what I got. All result images for folder groups ca
 
 be found in the images folder in this artifact.
 
-![](imgs/marked_faces.tga)
-![](imgs/marked_group06.tga)
-![](imgs/marked_group12.tga)
-![](imgs/marked_group13.tga)
-![](imgs/marked_group14.tga)
-![](imgs/marked_group16.tga)
+![png](imgs/marked_faces.png)
+![png](imgs/marked_group06.png)
+![png](imgs/marked_group12.png)
+![png](imgs/marked_group13.png)
+![png](imgs/marked_group14.png)
+![png](imgs/marked_group16.png)
 
 ```
 Fig 7: Good results with “group”
@@ -119,9 +119,9 @@ only had a mismatch). This, however was when (num eigen values)k=10. With
 larger k we expect better results.
 
 
-![](imgs/marked_group05.tga)
-![](imgs/marked_group02.tga)
-![](imgs/marked_group10.tga)
+![png](imgs/marked_group05.png)
+![png](imgs/marked_group02.png)
+![png](imgs/marked_group10.png)
 ```
 Fig 8: Bad results with “group”
 ```
