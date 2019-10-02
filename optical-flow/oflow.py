@@ -3,7 +3,7 @@ Manil Bastola
 
 Testing Optical flow algorithms in motion tracking of moving bodies in a video stream
 
-This code is highly based on Opencv examples. 
+This code is heavily based on Opencv 3.1 Optical Flow example. 
 
 """
 
