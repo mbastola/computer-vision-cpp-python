@@ -95,7 +95,6 @@ be found in the images folder in this artifact.
 ![png](imgs/marked_group12.png)
 ![png](imgs/marked_group13.png)
 ![png](imgs/marked_group14.png)
-![png](imgs/marked_group16.png)
 
 ```
 Fig 7: Good results with “group”
