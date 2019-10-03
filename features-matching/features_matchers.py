@@ -9,8 +9,8 @@ import _pickle as pickle
 #import cPickle as pickle
 import math
 import numpy as np
-from scipy.interpolate import griddata
-#from skimage.transform import PiecewiseAffineTransform, PolynomialTransform, warp
+#from scipy.interpolate import griddata
+from skimage.transform import PiecewiseAffineTransform, PolynomialTransform, warp
 
 def pickle_keypoints(keypoints, descriptors):
     i = 0
@@ -24,6 +24,7 @@ def pickle_keypoints(keypoints, descriptors):
 def unpickle_keypoints(array):
     keypoints = []
     descriptors = []
+
     for point in array:
         temp_feature = cv2.KeyPoint(x=point[0][0],y=point[0][1],_size=point[1], _angle=point[2], _response=point[3], _octave=point[4], _class_id=point[5])
         temp_descriptor = point[6]
@@ -33,7 +34,8 @@ def unpickle_keypoints(array):
 
 def computeDescriptions(img, featsfilename = None):
     if (featsfilename and os.path.exists(featsfilename)):
-        return unpickle_keypoints(featsfilename)
+        feats = pickle.load( open(featsfilename , "rb" ) )
+        return unpickle_keypoints(feats)
     
     # Initiate SIFT detector
     sift = cv2.xfeatures2d.SIFT_create(0,3,0.07)
@@ -41,10 +43,8 @@ def computeDescriptions(img, featsfilename = None):
     #compute keypoint & descriptions
     kp1, des1 = sift.detectAndCompute(img,None)
     if featsfilename:
-        temp_array = []
         temp = pickle_keypoints(kp1, des1)
-        temp_array.append(temp)
-        pickle.dump(temp_array, open(featsfilename, "wb"))
+        pickle.dump(temp, open(featsfilename, "wb"))
         out=cv2.drawKeypoints(img, kp1,  0, color=(0,255,0), flags=0)
         cv2.imwrite( featsfilename+"_kps.png", out);
     return kp1, des1
@@ -55,6 +55,15 @@ def genMatcher():
     flann_params = dict(algorithm = 1, trees = 5)
     matcher = cv2.FlannBasedMatcher(flann_params, {})
     return matcher
+
+def similarityScore(src, dst, mask):
+    dst_masked =  dst * mask
+    #for viz
+    diff = cv2.absdiff(dst,src)
+    cv2.imwrite("difference.jpg",diff)            
+    score = cv2.matchTemplate(src, dst,cv2.TM_CCORR_NORMED, None, mask)
+    return score
+
 
 def main():
 
@@ -110,75 +119,75 @@ def main():
                 boundingRect[3] = h2-1            
             src_transformed_cropped = src_transformed[boundingRect[1]:boundingRect[1]+boundingRect[3], boundingRect[0]:boundingRect[0]+boundingRect[2]]
             dst_cropped = dst_image[boundingRect[1]:boundingRect[1]+boundingRect[3], boundingRect[0]:boundingRect[0]+boundingRect[2]].copy()
-            score = cv2.matchTemplate(src_transformed_cropped, dst_cropped,cv2.TM_CCOEFF_NORMED)
+
+            src_transformed_cropped_gray = cv2.cvtColor(src_transformed_cropped , cv2.COLOR_BGR2GRAY)
+            dst_cropped_gray = cv2.cvtColor(dst_cropped , cv2.COLOR_BGR2GRAY)
+            _, mask = cv2.threshold(src_transformed_cropped_gray, 0, 1, cv2.THRESH_BINARY)        
+            mask = cv2.merge((mask, mask, mask))
+            score = similarityScore(src_transformed_cropped, dst_cropped, mask)
 
             print("Similarity Score: {}".format(score))
 
             cv2.imwrite("src_transfromed.jpg",src_transformed_cropped)
-            cv2.imwrite("dst_orig.jpg",dst_cropped)
 
-            diff = cv2.absdiff(dst_cropped,src_transformed_cropped)
-            #score2 = np.mean(diff)/255
-            #print(score2)
-            cv2.imwrite("homography_difference.jpg",diff)
-            
             dst_image = cv2.polylines(dst_image,[np.int32(dst)],True,255,3, cv2.LINE_AA)
             
-            
             #weighted blend for vizualization
-            src_transformed = 0.5*src_transformed+0.5*dst_image
-            cv2.imwrite("homography_transform.jpg",src_transformed)
+            cv2.imwrite("homography_transform",0.5*src_transformed+0.5*dst_image)
+            cv2.imwrite("dst_overlay.jpg",0.5*src_transformed_cropped+0.5*dst_cropped)
 
         if OPTICAL_FLOW:
 
             # Parameters for lucas kanade optical flow
             lk_params = dict( winSize  = (100,100),
                               maxLevel = 2,
-                              criteria = (cv2.TERM_CRITERIA_EPS |cv2.TERM_CRITERIA_COUNT, 30, 0.05))
+                              criteria = (cv2.TERM_CRITERIA_EPS |cv2.TERM_CRITERIA_COUNT , 30, 0.1))
             
             # params for ShiTomasi corner detection
             feature_params = dict( maxCorners = 2000,
                                    qualityLevel = 0.05,
-                                   minDistance = 7,
-                                   blockSize = 7)
+                                   minDistance = 3,
+                                   blockSize = 3)
 
-            src_transformed_cropped_gray = cv2.cvtColor(src_transformed_cropped , cv2.COLOR_BGR2GRAY)
-            dst_cropped_gray = cv2.cvtColor(dst_cropped , cv2.COLOR_BGR2GRAY)
             color = np.random.randint(0,255,(100,3))
-            p0 = cv2.goodFeaturesToTrack(src_transformed_cropped_gray, mask = None, **feature_params)
+            p0 = cv2.goodFeaturesToTrack(dst_cropped_gray, mask = None, **feature_params)
             #_, p0 = computeDescriptions(src_transformed_cropped)
             
-            p1, st, err = cv2.calcOpticalFlowPyrLK(src_transformed_cropped, dst_cropped, p0, None, **lk_params)
+            p1, st, err = cv2.calcOpticalFlowPyrLK(dst_cropped, src_transformed_cropped, p0, None, **lk_params)
             # Select good points
             good_old = p0[st==1]
             good_new = p1[st==1]
 
+
+            src_oflow_viz = src_transformed_cropped.copy()
+            dst_oflow_viz = dst_cropped.copy()
             for i,(new,old) in enumerate(zip(good_new,good_old)):
                 try:
                     a,b = new.ravel()
                     c,d = old.ravel()
-                    src = cv2.line(src_transformed_cropped, (a,b),(c,d), color[i].tolist(), 2)
-                    dst = cv2.circle(dst_cropped,(a,b),5,color[i].tolist(),-1)
+                    src_oflow_viz = cv2.line(src_oflow_viz, (a,b),(c,d), color[i].tolist(), 2)
+                    dst_oflow_viz = cv2.circle(dst_oflow_viz,(a,b),5,color[i].tolist(),-1)
                 except:
                     continue
                 
-            cv2.imwrite("tmp3.jpg",src);
-            cv2.imwrite("tmp4.jpg",dst);
+            cv2.imwrite("tmp3.jpg",src_oflow_viz);
+            cv2.imwrite("tmp4.jpg",dst_oflow_viz);
 
-            """
-            h,w,_ = dst_cropped.shape
 
-            grid_x, grid_y = np.mgrid[0:h-1:h*1j, 0:w-1:w*1j]
-            #grid_z = griddata(dst_pts.reshape(-1,2), src_pts.reshape(-1,2), (grid_x, grid_y), method='cubic')
-            grid_z = griddata(good_old, good_new, (grid_x, grid_y), method='cubic')
-            map_x = np.append([], [ar[:,1] for ar in grid_z]).reshape(h,w)
-            map_y = np.append([], [ar[:,0] for ar in grid_z]).reshape(h,w)
-            map_x_32 = map_x.astype('float32')
-            map_y_32 = map_y.astype('float32')
-            src_transformed_oflow = cv2.remap(src_transformed_cropped_gray, map_x_32 , map_y_32 , cv2.INTER_CUBIC)
+            tform = PiecewiseAffineTransform()
+            tform.estimate(good_old,good_new)
             
-            cv2.imwrite("oflow_transform.jpg", src_transformed_oflow );
-            """
+            out = (255*warp(src_transformed_cropped, tform)).astype(np.uint8)
+            out_gray = cv2.cvtColor(out, cv2.COLOR_BGR2GRAY)
+            _, mask = cv2.threshold(out_gray, 0, 1, cv2.THRESH_BINARY)        
+            mask = cv2.merge((mask, mask, mask))
+            score = similarityScore(out, dst_cropped, mask)
+            print("Similarity Score: {}".format(score))
+
+            cv2.imwrite("oflow.jpg",out)
+            out = out*0.5+dst_cropped*0.5
+            cv2.imwrite("piecewise.jpg",out)
+
     else:
         print( "Not enough matches are found - {}/{}".format(len(good), MIN_MATCH_COUNT) )
         matchesMask = None
