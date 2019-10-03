@@ -44,9 +44,7 @@ def TfNet():
     Model["conf_thresh"] = 0.2
     return Model
 
-def detect(Model, frame, outfilename):
-    
-    
+def detect(Model, frame, outfilename):    
     inScaleFactor = 0.007843
     meanVal = 127.5
 
