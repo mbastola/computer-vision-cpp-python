@@ -133,7 +133,7 @@ def main():
             dst_image = cv2.polylines(dst_image,[np.int32(dst)],True,255,3, cv2.LINE_AA)
             
             #weighted blend for vizualization
-            cv2.imwrite("homography_transform",0.5*src_transformed+0.5*dst_image)
+            cv2.imwrite("homography_transform.jpg",0.5*src_transformed+0.5*dst_image)
             cv2.imwrite("dst_overlay.jpg",0.5*src_transformed_cropped+0.5*dst_cropped)
 
         if OPTICAL_FLOW:
@@ -170,7 +170,7 @@ def main():
                 except:
                     continue
                 
-            cv2.imwrite("tmp3.jpg",src_oflow_viz);
+            cv2.imwrite("tmp3.jpg",0.5*src_oflow_viz+0.5*dst_oflow_viz);
             cv2.imwrite("tmp4.jpg",dst_oflow_viz);
 
 

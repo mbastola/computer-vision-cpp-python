@@ -98,7 +98,6 @@ In the images below, left is source image transformed post optical flow. The mid
 Normalized Correlation Score is 0.982
 ```
 
-
 <p float="left">
   <img src="imgs/oflow.jpg" width="250" />
   <img src="imgs/piecewise.jpg" width="250" />
@@ -135,6 +134,16 @@ Source and Destination images.
 ```
 Homography Transform. Normalized Correlation Score is 0.892
 ```
+
+<p float="left">
+  <img src="imgs/tmp6.jpg" width="400" />
+  <img src="imgs/tmp5.jpg" width="400" />	
+</p>
+
+```
+Optical flow vectors
+```
+
 <p float="left">
   <img src="imgs/oflow2.jpg" width="250" />
   <img src="imgs/piecewise2.jpg" width="250" />
