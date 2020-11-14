@@ -1,4 +1,4 @@
-# Project 1: Feature Detection and Matching
+CV (Project 1)[https://github.com/mbastola/computer-vision-cpp-python/tree/master/courseworks-non-opencv/Features_Detection_And_Matching]: Feature Detection and Matching
 
 **Detector Design:**
 
@@ -40,7 +40,7 @@ bottom-right (ie -45 degrees). Without angular correction, this value would have
 However, with angular correction, this orientation will be added to bin 1 (default bin + offset => 2 + -
 = 1 ). This is the bin representing -90 degrees which is the case if the image was unrotated.
 
-![png](imgs/img1.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/courseworks-non-opencv/Features_Detection_And_Matching/imgs/img1.png)
 ```
 Figure 1: Rotational Invariance by “rotating” histogram bins.
 ```
@@ -80,11 +80,11 @@ eigenvaule for detection and manilsFeatureDescriptor for description.
 **Performance:**
 
 Yosemite:
-![png](imgs/plot.roc.yose.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/courseworks-non-opencv/Features_Detection_And_Matching/imgs/plot.roc.yose.png)
 ```
 ROC plot
 ```
-![png](imgs/harris_yose.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/courseworks-non-opencv/Features_Detection_And_Matching/imgs/harris_yose.png)
 
 ```
 Result of Harris Operator on Yosemite1.jpg. The pixels have been multiplied by 255 for better
@@ -92,31 +92,31 @@ visibility
 ```
 Graf:
 
-![png](imgs/plot.roc.graf.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/courseworks-non-opencv/Features_Detection_And_Matching/imgs/plot.roc.graf.png)
 ```
 ROC plot
 ```
-![png](imgs/harris_graf.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/courseworks-non-opencv/Features_Detection_And_Matching/imgs/harris_graf.png)
 ```
 Result of Harris Operator on Graf's Img1.jpg. The pixels have been multiplied by 255 for better
 visibility
 ```
 **Manil's Test Images**
 
-![png](imgs/test1.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/courseworks-non-opencv/Features_Detection_And_Matching/imgs/test1.png)
 ```
 Good features due to dynamic harris thresholding in bike img6.jpg
 ```
-![png](imgs/feature_matching1.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/courseworks-non-opencv/Features_Detection_And_Matching/imgs/feature_matching1.png)
 ```
 Feature matching with manilsFeatureDescriptors for sligt image translations
 ```
-![png](imgs/feature_matching2.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/courseworks-non-opencv/Features_Detection_And_Matching/imgs/feature_matching2.png)
 ```
 Feature matching with SSD and manilsFeatureDescriptors for image rotation (Labels with x show bad
 match)
 ```
-![png](imgs/avg_auc.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/courseworks-non-opencv/Features_Detection_And_Matching/imgs/avg_auc.png)
 ```
 Avergage AUC across benchmark sets
 ```

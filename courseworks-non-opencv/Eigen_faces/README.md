@@ -1,5 +1,4 @@
-
-# Project 3: Eigenfaces
+CV (Project 3)[https://github.com/mbastola/computer-vision-cpp-python/tree/master/courseworks-non-opencv/Eigen_faces]: Eigenfaces
 
 
 Used std::vector instead of std::list in the implementation of findFaces. I tried
@@ -20,11 +19,11 @@ the shortcoming of the algorithm itself.
 
 ## 1) Testing recognition with cropped class images
 
-![png](imgs/eigen_faces.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/courseworks-non-opencv/Eigen_faces/imgs/eigen_faces.png)
 ```
 Fig 1: Eigen faces for neutral folder
 ```
-![png](imgs/avg_face.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/courseworks-non-opencv/Eigen_faces/imgs/avg_face.png)
 ```
 Fig2: Average face for neutral folder
 ```
@@ -40,7 +39,7 @@ extra computation, we are starting to get marginally less correct perfromace.
 Hence, I would say k = 15 is an ideal choice for eigen values which is about 5/8th
 of the number of images used.
 
-![png](imgs/eigentestgraph.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/courseworks-non-opencv/Eigen_faces/imgs/eigentestgraph.png)
 ```
 Fig3: correct recognition vs number of eigen-values
 ```
@@ -58,15 +57,15 @@ folder “neutral” was used to compute the userbase. i.e. with 100%-(7/24*100%
 
 
 ### Questions:
-![png](imgs/cropped_face.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/courseworks-non-opencv/Eigen_faces/imgs/cropped_face.png)
 ```
 Fig4: cropped_test.tga from group/single_test.tga image
 ```
-![png](imgs/marked_faces_single.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/courseworks-non-opencv/Eigen_faces/imgs/marked_faces_single.png)
 ```
 Fig5: single image preformace
 ```
-![png](imgs/marked_faces_new_.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/courseworks-non-opencv/Eigen_faces/imgs/marked_faces_new_.png)
 ```
 Fig6: Group image preformace
 ```
@@ -90,11 +89,11 @@ Following are the examples of what I got. All result images for folder groups ca
 
 be found in the images folder in this artifact.
 
-![png](imgs/marked_faces.png)
-![png](imgs/marked_group06.png)
-![png](imgs/marked_group12.png)
-![png](imgs/marked_group13.png)
-![png](imgs/marked_group14.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/courseworks-non-opencv/Eigen_faces/imgs/marked_faces.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/courseworks-non-opencv/Eigen_faces/imgs/marked_group06.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/courseworks-non-opencv/Eigen_faces/imgs/marked_group12.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/courseworks-non-opencv/Eigen_faces/imgs/marked_group13.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/courseworks-non-opencv/Eigen_faces/imgs/marked_group14.png)
 
 ```
 Fig 7: Good results with “group”
@@ -118,9 +117,9 @@ only had a mismatch). This, however was when (num eigen values)k=10. With
 larger k we expect better results.
 
 
-![png](imgs/marked_group05.png)
-![png](imgs/marked_group02.png)
-![png](imgs/marked_group10.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/courseworks-non-opencv/Eigen_faces/imgs/marked_group05.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/courseworks-non-opencv/Eigen_faces/imgs/marked_group02.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/courseworks-non-opencv/Eigen_faces/imgs/marked_group10.png)
 ```
 Fig 8: Bad results with “group”
 ```
@@ -141,12 +140,12 @@ Meanwhile, figure 8 shows false positive rate against true negatives. When MSE >
 4600, the false positive rate becomes greater than 50% which is bad! Hence, a
 sweet spot of 1400-3000 gives the highest ROC values.
 
-![png](imgs/testfpfn.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/courseworks-non-opencv/Eigen_faces/imgs/testfpfn.png)
 ```
 Fig 9: True positive vs false negative in verification of 24 images of neutral folder
 vs interesting folder. TP+FN=
 ```
-![png](imgs/testfpfn2.png)
+![png](https://github.com/mbastola/computer-vision-cpp-python/blob/master/courseworks-non-opencv/Eigen_faces/imgs/testfpfn2.png)
 ```
 Fig 10: False positive vs true negative in verification of 24 images of neutral folder
 vs interesting folder. Total files cross verified is 576. FP+TN=
