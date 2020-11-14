@@ -1,4 +1,4 @@
-CV (Project 3)[https://github.com/mbastola/computer-vision-cpp-python/tree/master/courseworks-non-opencv/Eigen_faces]: Eigenfaces
+CV [Project 3](https://github.com/mbastola/computer-vision-cpp-python/tree/master/courseworks-non-opencv/Eigen_faces): Eigenfaces
 
 
 Used std::vector instead of std::list in the implementation of findFaces. I tried

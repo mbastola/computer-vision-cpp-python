@@ -1,4 +1,4 @@
-CV (Project 2)[https://github.com/mbastola/computer-vision-cpp-python/tree/master/courseworks-non-opencv/Panorama]: Panorama Mosiac Stitching
+CV [Project 2](https://github.com/mbastola/computer-vision-cpp-python/tree/master/courseworks-non-opencv/Panorama): Panorama Mosiac Stitching
 
 
 1.  For "make your own 360 panorama" took 17 translated imgs of WashU's Brookings building with Iphone SE using hand (no tripod). I converted the imgs to low (640x480) pixel using imageMagick's convert tool.

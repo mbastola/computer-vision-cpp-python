@@ -1,4 +1,4 @@
-CV (Project 1)[https://github.com/mbastola/computer-vision-cpp-python/tree/master/courseworks-non-opencv/Features_Detection_And_Matching]: Feature Detection and Matching
+CV [Project 1](https://github.com/mbastola/computer-vision-cpp-python/tree/master/courseworks-non-opencv/Features_Detection_And_Matching): Feature Detection and Matching
 
 **Detector Design:**
 

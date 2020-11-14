@@ -1,6 +1,4 @@
-# Motion Tracking
-
-This project implements motion tracking with initial random features using optical flow algorithms in OpenCV python. 
+[This project](https://github.com/mbastola/computer-vision-cpp-python/tree/master/motion-tracking) implements motion tracking with initial random features using optical flow algorithms in OpenCV python. 
 
 
 ### Sparse flow using Lucas Kanade
